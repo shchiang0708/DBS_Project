@@ -83,7 +83,7 @@
                     <th scope="col">ISBN</th>
                     <th scope="col">Title</th>
                     <th scope="col">Author</th>
-                    <th scope="col">Edition</th>
+                    <!-- <th scope="col">Edition</th> -->
                     <th scope="col">Publication</th>
                     <th scope="col">Category</th>
                     <th scode="col">Borrowed_ID</th>
@@ -102,7 +102,7 @@
                         echo "<td>" . $book_to_show[3] . "</td>";
                         echo "<td>" . $book_to_show[4] . "</td>";
                         echo "<td>" . $book_to_show[5] . "</td>";
-                        echo "<td>" . $book_to_show[6] . "</td>";
+                        // echo "<td>" . $book_to_show[6] . "</td>";
                         $count++;
                         // echo "</tbody>";
                     }

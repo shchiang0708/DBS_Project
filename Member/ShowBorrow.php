@@ -99,7 +99,7 @@
                             <th scope="col">ISBN</th>
                             <th scope="col">Title</th>
                             <th scope="col">Author</th>
-                            <th scope="col">Edition</th>
+                            <!-- <th scope="col">Edition</th> -->
                             <th scope="col">Publication</th>
                             <th scope="col">Category</th>
                         </tr>
@@ -115,7 +115,7 @@
                                 echo "<td>" . $book_to_show[2] . "</td>";
                                 echo "<td>" . $book_to_show[3] . "</td>";
                                 echo "<td>" . $book_to_show[4] . "</td>";
-                                echo "<td>" . $book_to_show[5] . "</td>";
+                                // echo "<td>" . $book_to_show[5] . "</td>";
                                 $title = urlencode($book_to_show[1]);
                                 echo "<td><a class='btn btn-primary' href='ReturnBooks.php?isbn=$book_to_show[0]&title=$title'>歸還</a></td>";
                                 echo "</tr>";

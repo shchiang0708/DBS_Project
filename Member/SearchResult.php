@@ -66,13 +66,12 @@
                 $isbn = $_POST["isbn"];
                 $title = $_POST["title"];
                 $author = $_POST["author"];
-                $edition = $_POST["edition"];
+                // $edition = $_POST["edition"];
                 $publication = $_POST["publication"];
                 $category = $_POST['category'];
 
                 $sql = "SELECT * FROM book_info";
-                if (!empty($isbn) || !empty($title) || !empty($author) || !empty($edition)
-                    || !empty($publication) || !empty($category)) {
+                if (!empty($isbn) || !empty($title) || !empty($author) || !empty($publication) || !empty($category)) {
                     $sql = $sql . " WHERE ";
 
                     // For ISBN, edition, and category, there should be 'Full-Text Search'.
@@ -85,9 +84,9 @@
                     if (!empty($author)) {
                         $sql = $sql . "author LIKE '%$author%' AND ";
                     }
-                    if (!empty($edition)) {
-                        $sql = $sql . "edition = '$edition' AND ";
-                    }
+                    // if (!empty($edition)) {
+                    //     $sql = $sql . "edition = '$edition' AND ";
+                    // }
                     if (!empty($publication)) {
                         $sql = $sql . "publication = '%$publication%' AND ";
                     }
@@ -114,36 +113,44 @@
                     echo "</script>";
                 }
             ?>
-            <table class='table table-bordered'>
-                <thead class='thead-inverse'>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">ISBN</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">Edition</th>
-                        <th scope="col">Publication</th>
-                        <th scope="col">Category</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        $count = 1;
-                        while ($book_to_show = $result->fetch_row()) {
-                            echo "<td>" . $count . "</td>";
-                            echo "<td>" . $book_to_show[0] . "</td>";
-                            echo "<td>" . $book_to_show[1] . "</td>";
-                            echo "<td>" . $book_to_show[2] . "</td>";
-                            echo "<td>" . $book_to_show[3] . "</td>";
-                            echo "<td>" . $book_to_show[4] . "</td>";
-                            echo "<td>" . $book_to_show[5] . "</td>";
-                            $title = urlencode($book_to_show[1]); // To solve some special symbol like '&'
-                            echo "<td><a class='btn btn-primary' href='BorrowBooks.php?isbn=$book_to_show[0]&title=$title'>借閱</a></td>";
-                            $count = $count + 1;
-                        }
-                    ?>
-                </tbody>
-            </table>
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <table class='table table-bordered'>
+                        <thead class='thead-inverse'>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">ISBN</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Author</th>
+                                <!-- <th scope="col">Edition</th> -->
+                                <th scope="col">Publication</th>
+                                <th scope="col">Category</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                $count = 1;
+                                while ($book_to_show = $result->fetch_row()) {
+                                    echo "<tr>";
+                                    echo "<td>" . $count . "</td>";
+                                    echo "<td>" . $book_to_show[0] . "</td>";
+                                    echo "<td>" . $book_to_show[1] . "</td>";
+                                    echo "<td>" . $book_to_show[2] . "</td>";
+                                    echo "<td>" . $book_to_show[3] . "</td>";
+                                    echo "<td>" . $book_to_show[4] . "</td>";
+                                    // echo "<td>" . $book_to_show[5] . "</td>";
+                                    $title = urlencode($book_to_show[1]); // To solve some special symbol like '&'
+                                    echo "<td><a class='btn btn-primary' href='BorrowBooks.php?isbn=$book_to_show[0]&title=$title'>借閱</a></td>";
+                                    $count = $count + 1;
+                                    echo "</tr>";
+                                }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
         </div>
 
     </body>

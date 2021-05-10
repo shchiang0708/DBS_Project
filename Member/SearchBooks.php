@@ -106,12 +106,12 @@
                                 <input type="text" name="author" size="48">
                             </td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td>Edition :</td>
                             <td>
                                 <input type="text" name="edition" size="48">
                             </td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <td>Publication: </td>
                             <td>
