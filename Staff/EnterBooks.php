@@ -55,7 +55,7 @@
         </div>
         <div class="row">
             <div class="col-sm-offset-2 col-sm-8">
-                <form action="./ManageBooks.php" method="post">
+                <form action="./InsertBooks.php" method="post">
                     <table class='table' border="2" align="center" cellpadding="5" cellspacing="5">
                         <tr>
                             <td>ISBN :</td>
@@ -97,7 +97,6 @@
                             <td></td>
                             <td>
                                 <input type="submit" name="insert" value="新增">
-                                <input type="submit" name="delete" value="刪除">
                             </td>
                         </tr>
                     </table>

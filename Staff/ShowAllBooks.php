@@ -104,6 +104,9 @@
                         echo "<td>" . $book_to_show[5] . "</td>";
                         // echo "<td>" . $book_to_show[6] . "</td>";
                         $count++;
+                        $title = urlencode($book_to_show[1]);
+                        echo "<td><a class='btn btn-primary' href='DeleteBooks.php?isbn=$book_to_show[0]&title=$title'>刪除</a></td>";
+                        echo "</tr>";
                         // echo "</tbody>";
                     }
                 ?>
