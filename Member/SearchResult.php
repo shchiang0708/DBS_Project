@@ -42,7 +42,9 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li><a href="./ShowBorrow.php">Home</a></li>
-                            <li><a href="./SearchBooks.php">借書</a></li>
+                            <li><a href="./SearchBooks.php">書籍查詢</a></li>
+                            <li><a href="./SearchBooksByCategory.php">種類</a></li>
+                            <li><a href="./SearchBooksByPublication.php">出版商</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <?php

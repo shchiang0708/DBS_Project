@@ -31,14 +31,16 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="./ShowBorrow.php">Home</a></li>
-                        <li><a href="./SearchBooks.php">借書</a></li>
+                        <li><a href="./SearchBooks.php">書籍查詢</a></li>
+                        <li><a href="./SearchBooksByCategory.php">種類</a></li>
+                        <li><a href="./SearchBooksByPublication.php">出版商</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <?php
-                $mID = $_COOKIE['mID'];
-                echo "<li><a class='nav-link disabled' aria-disabled='true'>$mID 您好</a></li>";
-                echo "<li><a href='../index.php'>Logout</a></li>";
-            ?>
+                            $mID = $_COOKIE['mID'];
+                            echo "<li><a class='nav-link disabled' aria-disabled='true'>$mID 您好</a></li>";
+                            echo "<li><a href='../index.php'>Logout</a></li>";
+                        ?>
                         <!-- <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
               <li><a href="../navbar-static-top/">Static top</a></li>
               <li><a href="../navbar-fixed-top/">Fixed top</a></li> -->
@@ -53,23 +55,23 @@
     </nav>
     <div class="container">
         <?php
-        $isbn = $_GET['isbn'];
-        $title = $_GET['title'];
+            $isbn = $_GET['isbn'];
+            $title = $_GET['title'];
 
-        include '../Connection.php';
-        $sql = "UPDATE book_info SET borrowed_id = NULL WHERE isbn = '$isbn'";
-        $result = mysqli_query($db, $sql);
+            include '../Connection.php';
+            $sql = "UPDATE book_info SET borrowed_id = NULL WHERE isbn = '$isbn'";
+            $result = mysqli_query($db, $sql);
 
-        if (mysqli_affected_rows($db) > 0) {
-            // alert 已成功歸還 'Title name'
-            echo "<script>";
-            echo "alert('已成功歸還 \'$title\'');";
-            echo "location.href = './ShowBorrow.php';";
-            echo "</script>";
-        } else {
-            echo "Something error";
-        }
-    ?>
+            if (mysqli_affected_rows($db) > 0) {
+                // alert 已成功歸還 'Title name'
+                echo "<script>";
+                echo "alert('已成功歸還 \'$title\'');";
+                echo "location.href = './ShowBorrow.php';";
+                echo "</script>";
+            } else {
+                echo "Something error";
+            }
+        ?>
     </div>
 
 </body>
