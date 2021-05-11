@@ -69,7 +69,9 @@
         <div class="row">
             <h3 style="text-align: center;">請輸入書籍資訊: </h3>
         </div>
-        <div class="row" style="background-color: #edbcf5;">
+        <div class="row"
+            style="background: rgb(249,53,231);
+background: linear-gradient(49deg, rgba(249,53,231,0.8099614845938375) 0%, rgba(214,68,176,0.48503151260504207) 56%, rgba(245,122,223,0.4654236694677871) 100%);">
             <div class="col-sm-2"></div>
             <div class="col-sm-9">
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">

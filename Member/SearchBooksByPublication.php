@@ -75,7 +75,7 @@
             <div class="col-sm-5"></div>
             <div class="col-sm-4">
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                    <select name="option">
+                    <select name="option" style="margin-right: 20px;">
                         <?php
                             while ($row = $result->fetch_row()) {
                                 echo "<option>" . $row[0] . "</option>";
