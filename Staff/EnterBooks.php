@@ -60,7 +60,8 @@
                         <tr>
                             <td>ISBN :</td>
                             <td>
-                                <input type="text" name="isbn" size="48">
+                                <!-- Only numeric input is valid in typing isbn -->
+                                <input type="text" name="isbn" size="48" onkeypress="return isNumber(event)">
                             </td>
                         </tr>
                         <tr>
@@ -75,12 +76,6 @@
                                 <input type="text" name="author" size="48">
                             </td>
                         </tr>
-                        <!-- <tr>
-                            <td>Edition :</td>
-                            <td>
-                                <input type="text" name="edition" size="48">
-                            </td>
-                        </tr> -->
                         <tr>
                             <td>Publication: </td>
                             <td>
@@ -101,6 +96,15 @@
                         </tr>
                     </table>
                 </form>
+                <script>
+                function isNumber(event) {
+                    var keycode = event.keyCode;
+                    if (keycode > 48 && keycode < 57) {
+                        return true;
+                    }
+                    return false;
+                }
+                </script>
             </div>
         </div>
     </div>
