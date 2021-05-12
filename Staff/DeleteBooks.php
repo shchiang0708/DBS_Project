@@ -56,13 +56,22 @@
         $isbn = $_GET['isbn'];
         $title = $_GET['title'];
 
-        $sql = "DELETE FROM book_info WHERE isbn = '$isbn';";
+        $sql = "SELECT * FROM book_info WHERE borrowed_id IS NOT NULL";
         $result = mysqli_query($db, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            echo "<script>";
+            echo "alert('\'$title\' 正被借閱，無法被刪除');";
+            echo "location.href = './ShowAllBooks.php';";
+            echo "</script>";
+        } else {
+            $sql = "DELETE FROM book_info WHERE isbn = '$isbn';";
+            $result = mysqli_query($db, $sql);
 
-        echo "<script>";
-        echo "alert('已成功刪除 \'$title\'');";
-        echo "location.href = './ShowAllBooks.php';";
-        echo "</script>";
+            echo "<script>";
+            echo "alert('已成功刪除 \'$title\'');";
+            echo "location.href = './ShowAllBooks.php';";
+            echo "</script>";
+        }
     ?>
 
 </body>
