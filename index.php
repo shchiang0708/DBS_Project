@@ -19,7 +19,8 @@
 
     .login-form-1 {
         padding: 10%;
-        background: #fff;
+        background-color: #f6f0c4;
+        background-image: linear-gradient(315deg, #f6f0c4 0%, #d99ec9 74%);
         box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
     }
 
@@ -32,13 +33,14 @@
 
     .login-form-2 {
         padding: 5%;
-        background: #0062cc;
+        background-color: #eec0c6;
+        background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
         box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
     }
 
     .login-form-2 h2 {
         text-align: center;
-        color: #fff;
+        color: #333;
         font-size: 48px;
     }
 
