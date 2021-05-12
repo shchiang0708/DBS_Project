@@ -1,3 +1,15 @@
+<?php
+    include "../Connection.php";
+    $sql = "SELECT * FROM book_info";
+    $result = mysqli_query($db, $sql);
+
+    if (mysqli_num_rows($result) == 0) {
+        echo "<script>";
+        echo "alert('目前實驗室並沒有任何書籍可供借閱');";
+        echo "location.href = './ShowBorrow.php';";
+        echo "</script>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -70,15 +82,14 @@
             <h3 style="text-align: center;">請輸入書籍資訊: </h3>
         </div>
         <div class="row"
-            style="background: rgb(249,53,231);
-background: linear-gradient(49deg, rgba(249,53,231,0.8099614845938375) 0%, rgba(214,68,176,0.48503151260504207) 56%, rgba(245,122,223,0.4654236694677871) 100%);">
+            style="background-color: #f6f0c4; background-image: linear-gradient(315deg, #f6f0c4 0%, #d99ec9 74%);">
             <div class="col-sm-2"></div>
             <div class="col-sm-9">
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                     <div class="row">
                         <div class="col-sm-3">
                             <label>ISBN: </label>
-                            <input type="text" name="isbn" size="15">
+                            <input type="text" name="isbn" size="15" onkeypress="return isNumber(event)">
                         </div>
                         <div class="col-sm-3">
                             <label>Title: </label>
@@ -92,6 +103,15 @@ background: linear-gradient(49deg, rgba(249,53,231,0.8099614845938375) 0%, rgba(
                         <div class="col-sm-2">
                             <input type="submit" name="insert" value="查詢" style="margin-top: 25px;">
                         </div>
+                        <script>
+                        function isNumber(event) {
+                            var keycode = event.keyCode;
+                            if (keycode > 48 && keycode < 57) {
+                                return true;
+                            }
+                            return false;
+                        }
+                        </script>
                     </div>
                     <!-- <div class="row">
                         <div class="col-sm-3">
@@ -159,7 +179,6 @@ background: linear-gradient(49deg, rgba(249,53,231,0.8099614845938375) 0%, rgba(
         </div>
         <?php
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                include "../Connection.php";
 
                 $isbn = $_POST["isbn"];
                 $title = $_POST["title"];

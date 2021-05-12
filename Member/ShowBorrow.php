@@ -85,7 +85,9 @@
             $sql = "SELECT book_info.* FROM Member, book_info WHERE borrowed_id = '$mID' AND mID = '$mID';";
             $result = mysqli_query($db, $sql);
             if (mysqli_num_rows($result) == 0) {
-                echo "<h3>您沒有借任何書!!!</h3>";
+                echo "<div class='row'>";
+                echo "<h3 style='text-align: center;'><b>您沒有借任何書!!!</b></h3>";
+                echo "</div>";
                 exit();
             }
         ?>

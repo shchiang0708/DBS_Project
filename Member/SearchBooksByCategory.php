@@ -2,6 +2,13 @@
     include "../Connection.php";
     $sql = "SELECT DISTINCT(Category) FROM book_info";
     $result = mysqli_query($db, $sql);
+
+    if (mysqli_num_rows($result) == 0) {
+        echo "<script>";
+        echo "alert('目前實驗室並沒有任何書籍可供借閱');";
+        echo "location.href = './ShowBorrow.php';";
+        echo "</script>";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +82,7 @@
             <div class="col-sm-5"></div>
             <div class="col-sm-4">
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                    <select name="option" style="margin-right: 20px;">
+                    <select name="option" style="margin-right: 20px; width:100px;">
                         <?php
                             while ($row = $result->fetch_row()) {
                                 echo "<option>" . $row[0] . "</option>";

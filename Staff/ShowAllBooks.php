@@ -75,6 +75,13 @@
         <?php
             $sql = "SELECT * FROM book_info";
             $result = mysqli_query($db, $sql);
+
+            if (mysqli_num_rows($result) == 0) {
+                echo "<div class='row'>";
+                echo "<h3 style='text-align: center;'><b>目前實驗室並沒有任何書籍</b></h3>";
+                echo "</div>";
+                exit();
+            }
         ?>
         <table class="table table-bordered">
             <thead class="thead-inverse">
@@ -91,25 +98,25 @@
             </thead>
             <tbody>
                 <?php
-                    $count = 1;
-                    while ($book_to_show = $result->fetch_row()) {
-                        // echo "<tbody>";
-                        echo "<tr>";
-                        echo "<td>" . $count . "</td>";
-                        echo "<td>" . $book_to_show[0] . "</td>";
-                        echo "<td>" . $book_to_show[1] . "</td>";
-                        echo "<td>" . $book_to_show[2] . "</td>";
-                        echo "<td>" . $book_to_show[3] . "</td>";
-                        echo "<td>" . $book_to_show[4] . "</td>";
-                        echo "<td>" . $book_to_show[5] . "</td>";
-                        // echo "<td>" . $book_to_show[6] . "</td>";
-                        $count++;
-                        $title = urlencode($book_to_show[1]);
-                        echo "<td><a class='btn btn-primary' href='DeleteBooks.php?isbn=$book_to_show[0]&title=$title'>刪除</a></td>";
-                        echo "</tr>";
-                        // echo "</tbody>";
-                    }
-                ?>
+                $count = 1;
+                while ($book_to_show = $result->fetch_row()) {
+                    // echo "<tbody>";
+                    echo "<tr>";
+                    echo "<td>" . $count . "</td>";
+                    echo "<td>" . $book_to_show[0] . "</td>";
+                    echo "<td>" . $book_to_show[1] . "</td>";
+                    echo "<td>" . $book_to_show[2] . "</td>";
+                    echo "<td>" . $book_to_show[3] . "</td>";
+                    echo "<td>" . $book_to_show[4] . "</td>";
+                    echo "<td>" . $book_to_show[5] . "</td>";
+                    // echo "<td>" . $book_to_show[6] . "</td>";
+                    $count++;
+                    $title = urlencode($book_to_show[1]);
+                    echo "<td><a class='btn btn-primary' href='DeleteBooks.php?isbn=$book_to_show[0]&title=$title'>刪除</a></td>";
+                    echo "</tr>";
+                    // echo "</tbody>";
+                }
+            ?>
             </tbody>
         </table>
     </div>
