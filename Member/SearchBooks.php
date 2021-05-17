@@ -81,8 +81,7 @@
         <div class="row">
             <h3 style="text-align: center;">請輸入書籍資訊: </h3>
         </div>
-        <div class="row"
-            style="background-color: #f6f0c4; background-image: linear-gradient(315deg, #f6f0c4 0%, #d99ec9 74%);">
+        <div class="row" style="border-style: double;">
             <div class="col-sm-2"></div>
             <div class="col-sm-9">
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">

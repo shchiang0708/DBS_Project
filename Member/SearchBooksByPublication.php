@@ -78,7 +78,7 @@
         <!--/.container-fluid -->
     </nav>
     <div class="container">
-        <div class="row">
+        <div class="row" style="border-style: double;">
             <div class="col-sm-5"></div>
             <div class="col-sm-4">
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
