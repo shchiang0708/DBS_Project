@@ -33,8 +33,8 @@
 
     .login-form-2 {
         padding: 5%;
-        background-color: #eec0c6;
-        background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
+        background-color: #007ea7;
+        background-image: linear-gradient(315deg, #007ea7 0%, #80ced7 74%);
         box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
     }
 
