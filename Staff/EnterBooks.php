@@ -98,11 +98,11 @@
                 </form>
                 <script>
                 function isNumber(event) {
-                    var keycode = event.keyCode;
-                    if (keycode > 48 && keycode < 57) {
+                    var which = event.which;
+                    if (which >= 48 && which <= 57)
                         return true;
-                    }
-                    return false;
+                    else
+                        return false;
                 }
                 </script>
             </div>

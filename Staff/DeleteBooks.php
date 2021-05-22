@@ -56,7 +56,7 @@
         $isbn = $_GET['isbn'];
         $title = $_GET['title'];
 
-        $sql = "SELECT * FROM book_info WHERE borrowed_id IS NOT NULL";
+        $sql = "SELECT * FROM book_info WHERE isbn = '$isbn' AND borrowed_id IS NOT NULL";
         $result = mysqli_query($db, $sql);
         if (mysqli_num_rows($result) > 0) {
             echo "<script>";

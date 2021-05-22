@@ -91,7 +91,7 @@
                 echo "</script>";
             } else {
                 echo "<script>";
-                echo "alert('\'$title\' 無法新增');";
+                echo "alert('isbn: \'$isbn\' 已存在，故 \'$title\' 無法新增');";
                 echo "history.go(-1)";
                 echo "</script>";
             }
